@@ -1,0 +1,14 @@
+1 - Pages (routes):
+
+    -> Home (/)
+    -> Authentication:
+        --> Login (/login)
+        --> Logout (/logout)
+        --> Register (/register)
+
+    -> Profile (/me/:username)
+    -> Tasks:
+        --> all tasks (/tasks/all)
+        --> completed tasks (/tasks/completed)
+        --> pending tasks (/tasks/pending)
+
