@@ -1,11 +1,15 @@
 import Form from '../../img/Form.png';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 import * as ROUTES from '../../constants/routes'
 import UserContext from '../../context/user';
+import fetchAPI from '../../helpers/fetch';
+
 const Login = () => {
     const history = useHistory()
-    console.log(history)
+    const location = useLocation()
+    console.info(location);
+    const fetch = new fetchAPI()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState('');
@@ -14,17 +18,11 @@ const Login = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        fetch('https://api-nodejs-todolist.herokuapp.com/user/login', {
-            method: 'POST',
-            headers: {
-            'Content-Type':'Application/json' 
-            },
-            body: JSON.stringify({
-                "email" : email,
-                "password" : password
+        fetch.post('https://api-nodejs-todolist.herokuapp.com/user/login',
+            {
+                email: email,
+                password: password
             })
-        })
-        .then(res => res.json())
         .then(data => {
             console.log(data)
             if(data.token){
@@ -32,7 +30,7 @@ const Login = () => {
                 localStorage.setItem('token', data.token);
                 console.log('token', data.token);
                 setUser(data.user);
-                history.push(ROUTES.HOME)
+                history.push(ROUTES.DASHBOARD)
             } else {
                 setErrors(data + '. Please verify your email and password.');
                 setEmail('');
@@ -42,7 +40,12 @@ const Login = () => {
     }
 
     useEffect(() => {
+        if(localStorage.getItem('token')){
+         history.push(ROUTES.DASHBOARD);
+         return;
+        }    
         document.title = 'TODO APP - Login';
+
     }, [])
 
     return (

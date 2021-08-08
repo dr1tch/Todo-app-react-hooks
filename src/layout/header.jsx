@@ -1,6 +1,12 @@
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../context/user';
 
 const Header = () => {
+    const user = useContext(UserContext)
+    useEffect(() => {
+        console.table(localStorage);
+    }, [user])
     return (
         <header className='font-poppins bg-gray-50 dark:bg-gray-800 shadow-md'>
             <nav className='h-16 container mx-auto flex flex-row justify-between items-center '>
@@ -10,9 +16,14 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className='flex flex-row justify-start gap-10 items-center'>
+                    {
+                        localStorage.length === 0 &&
+                    <>
                     <Link to='/login' className='dark:text-gray-50 text-gray-600 hover:text-gray-800 font-medium'>Login</Link>
                     <Link to='/register' className='text-gray-50 bg-gray-500 dark:bg-gray-50 px-2.5 py-1.5 dark:text-gray-600 hover:bg-gray-800 font-medium rounded-md'>Register</Link>
-                    <Link to='/logout' className='dark:text-gray-50 text-gray-600 hover:text-gray-800 font-medium'>Logout</Link>
+                    </>
+                    }
+                    { localStorage.length > 0 && <Link to='/logout' className='dark:text-gray-50 text-gray-600 hover:text-gray-800 font-medium'>Logout</Link>}
                 </div>
             </nav>
         </header>
