@@ -12,7 +12,7 @@ const Logout = () =>  {
         .then(res => {
             console.log('Logged Out!', res);
             localStorage.removeItem('token');
-        }).then(res => history.push(ROUTES.DASHBOARD))
+        }).then(res => history.push(ROUTES.TASKS))
     },[])
     return (
         <Spinner />

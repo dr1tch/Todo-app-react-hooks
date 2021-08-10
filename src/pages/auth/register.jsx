@@ -43,22 +43,19 @@ const Register = () => {
 
     useEffect(() => {
         if(localStorage.getItem('token')){
-            history.push(ROUTES.DASHBOARD);
+            history.push(ROUTES.TASKS);
             return;
            } 
         document.title = 'TODO APP - Sign Up';
     }, [])
 
     return (
-        <div className='flex lg:justify-between justify-center mt-16 items-center w-full'>
-            <div className='lg:w-3/5 hidden lg:flex'>
-                <img className="" src={Form} alt="" />
-            </div>
-            
-            <div className='lg:w-2/5 w-auto flex flex-col gap-3 justify-center items-center'>
+        <div className='flex justify-center items-center w-full'>
+           
+            <div className='w-auto flex flex-col gap-3 justify-center items-center mt-24'>
                 <form 
                     onSubmit={handleLogin}
-                    className='flex flex-col justify-center items-center gap-5 border border-gray-400 rounded px-5 py-4 w-min lg:w-3/5 bg-white dark:bg-gray-600 text-sm'>
+                    className='flex flex-col justify-center items-center gap-5 border border-gray-400 rounded px-5 py-4 w-min bg-white dark:bg-gray-600 text-sm'>
                     <div className='flex justify-center items-center'>
                         <h1 className='font-poppins font-bold text-2xl'>TODO APP</h1>
                     </div>
@@ -111,7 +108,7 @@ const Register = () => {
                         >Sign Up</button>
                     </div>
                 </form>
-                <div className=" flex justify-center items-center mt-4 px-5 py-4 border border-gray-400 bg-white rounded w-full lg:w-3/5">
+                <div className=" flex justify-center items-center mt-4 px-5 py-4 border border-gray-400 bg-white rounded w-full ">
                     <p className='text-sm'>Have an account! {' '} 
                         <Link className='text-blue-700 font-semibold' to={ROUTES.LOGIN}>Login</Link>
                     </p>

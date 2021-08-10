@@ -1,9 +1,9 @@
-export const DASHBOARD = "/";
+// export const DASHBOARD = "/";
 export const LOGIN = "/login";
 export const REGISTER = "/register";
 export const LOGOUT = "/logout";
 export const PROFILE = "/me/:username";
-// export const DASHBOARD = "/";
-export const TASKS = "/tasks/all";
-export const COMPLETED = "/tasks/completed";
-export const PENDING = "/tasks/pending";
+export const EDIT_PROFILE = "/edit-profile";
+export const TASKS = "/";
+export const COMPLETED = "/completed";
+export const PENDING = "/pending";

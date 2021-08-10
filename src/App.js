@@ -17,6 +17,7 @@ const Dashboard = lazy(() => import('./pages/dashboard'))
 const Login = lazy(() => import('./pages/auth/login'));
 const Logout = lazy(() => import('./pages/auth/logout'));
 const Register = lazy(() => import('./pages/auth/register'));
+const Layout = lazy(() => import("./layout/layout"));
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,11 +32,16 @@ function App() {
       <Router>
         <Switch>
           <div className="App bg-gray-50 dark:bg-gray-800 h-screen">
-            <Header />
-              <Container>
-              {/* <Suspense fallback={<Spinner />} > */}
-                <ProtectedRoute exact path={ROUTES.DASHBOARD} user={user}>
-                  <Dashboard />
+                <ProtectedRoute exact path={ROUTES.TASKS} user={user}>
+                  <Route
+                      path={ROUTES.TASKS}
+                      render={(props) => (
+                        <Layout
+                          {...props}
+                          user={user}
+                        />
+                      )}
+                    />
                 </ProtectedRoute>
                 <Route exact path={ROUTES.LOGIN}>
                   <Login />
@@ -46,8 +52,6 @@ function App() {
                 <Route exact path={ROUTES.REGISTER}>
                   <Register />
                 </Route>
-                {/* </Suspense> */}
-              </Container>
           </div>
         </Switch>      
       </Router>
