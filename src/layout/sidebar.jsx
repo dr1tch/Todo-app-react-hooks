@@ -1,6 +1,7 @@
-import { NavLink, useRouteMatch, Link, Route } from 'react-router-dom';
+import { NavLink, Link, Route, Switch } from 'react-router-dom';
 import routes from '../routes/sidebar'
 import * as Icons from '../icons';
+import { useEffect } from 'react';
 
 function Icon({ icon, ...props }) {
     console.log(icon)
@@ -10,6 +11,9 @@ function Icon({ icon, ...props }) {
 }
 
 const Sidebar = () => {
+  useEffect(() => {
+    console.table(Icon);
+  }, [])
     return (
         <div className='w-56'>
             <ul className="mt-16">
@@ -17,7 +21,6 @@ const Sidebar = () => {
               routes.map((route, i) => (
                 <li className="w-full relative px-6 py-3" key={i}>
                   <NavLink
-                    exact
                     to={route.path}
                     className="flex items-center justify-start font-poppins w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-700 dark:hover:text-gray-200"
                     activeClassName="text-gray-700 dark:text-gray-100 "

@@ -8,7 +8,7 @@ import Spinner from "./components/utils/spinner";
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<Spinner />}>
-      <App />
+        <App />
     </Suspense>
   </React.StrictMode>,
   document.getElementById("root")

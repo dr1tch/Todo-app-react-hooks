@@ -38,6 +38,7 @@ const Login = () => {
     }
 
     useEffect(() => {
+        console.log('login')
         if(localStorage.getItem('token')){
          history.push(ROUTES.TASKS);
          return;

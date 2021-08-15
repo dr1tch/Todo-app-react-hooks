@@ -31,6 +31,7 @@ const Header = () => {
                         <div>
                             <button onClick={() => setIsOpen(!isOpen)} className='inline-flex justify-center w-full rounded-full border border-gray-300 shadow-sm' >
                                 <img className="w-8 h-8 shadow-md rounded-full" src={User} alt="" />
+                                <h1>{user.name}</h1>
                             </button>
                         </div>
                         {

@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router, 
   Switch,
   Route, 
+  Redirect
 } from 'react-router-dom'
 import Container from './layout/container';
 import Header from './layout/header'
@@ -23,8 +24,10 @@ function App() {
   const [user, setUser] = useState(null);
   const fetch = new fetchAPI();
   useEffect(() => {
+    if(localStorage.getItem('token'))
     fetch.get("https://api-nodejs-todolist.herokuapp.com/user/me")
     .then(data => console.table(data))
+    else console.log('not connected')
   }, []);
 
   return (
@@ -32,13 +35,12 @@ function App() {
       <Router>
         <Switch>
           <div className="App bg-gray-50 dark:bg-gray-800 h-screen">
-                <ProtectedRoute exact path={ROUTES.TASKS} user={user}>
+                <ProtectedRoute path={ROUTES.TASKS} user={user}>
                   <Route
                       path={ROUTES.TASKS}
                       render={(props) => (
                         <Layout
                           {...props}
-                          user={user}
                         />
                       )}
                     />
@@ -52,9 +54,10 @@ function App() {
                 <Route exact path={ROUTES.REGISTER}>
                   <Register />
                 </Route>
+                <Redirect from='/' to={ROUTES.TASKS} />
           </div>
-        </Switch>      
-      </Router>
+        </Switch> 
+      </Router>     
     </UserContext.Provider>
   );
 }

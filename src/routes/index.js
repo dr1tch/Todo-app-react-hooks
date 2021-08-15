@@ -15,22 +15,27 @@ const Completed = lazy(() =>
 const routes = [{
         path: ROUTES.TASKS, // the url
         component: Tasks, // view rendered
+        exact: true,
     },
     {
         path: ROUTES.COMPLETED, // the url
         component: Completed, // view rendered
+        // exact: true,
     },
     {
         path: ROUTES.PENDING, // the url
         component: Pending, // view rendered
+        // exact: true,
     },
     {
         path: ROUTES.EDIT_PROFILE, // the url
         component: EditProfile, // view rendered
+        // exact: true,
     },
     {
         path: ROUTES.PROFILE, // the url
         component: Profile, // view rendered
+        // exact: true,
     },
 ];
 

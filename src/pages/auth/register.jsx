@@ -30,7 +30,8 @@ const Register = () => {
             if(data.token){
                 setErrors('');
                 console.table(data.user)
-                history.push(ROUTES.LOGIN)
+                history.push()
+                localStorage.setItem('user', data.user);
             } else {
                 setErrors(data);
                 setName('')
