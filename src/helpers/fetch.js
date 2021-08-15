@@ -1,31 +1,3 @@
-// const fetchAPI = async(url = "", method = "GET", data = {}) => {
-//     let res = "";
-//     if (method === "GET" || method === "get") {
-//         res = await fetch(url, {
-//             method,
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 Authorization: `Bearer ${
-//           localStorage.getItem("token") ? localStorage.getItem("token") : ""
-//         }`,
-//             },
-//         });
-//     } else {
-//         res = await fetch(url, {
-//             method,
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 Authorization: `Bearer ${
-//           localStorage.getItem("token") ? localStorage.getItem("token") : ""
-//         }`,
-//             },
-//             body: JSON.stringify(data),
-//         });
-//     }
-
-//     return res.json();
-// };
-
 export default class fetchAPI {
     get = async(url = "") => {
         const res = await fetch(url, {

@@ -16,7 +16,7 @@ const Register = () => {
     const isInvalid = name === '' || password === '' || email === '' || age === '';
     const { user, setUser } = useContext(UserContext);
 
-    const handleLogin = (event) => {
+    const handleRegister = (event) => {
         event.preventDefault();
         fetch.post('https://api-nodejs-todolist.herokuapp.com/user/register',
             {
@@ -29,8 +29,10 @@ const Register = () => {
             console.log(data)
             if(data.token){
                 setErrors('');
+                setUser(data.user);
+                localStorage.setItem('token', data.token);
                 console.table(data.user)
-                history.push()
+                history.push(ROUTES.TASKS)
                 localStorage.setItem('user', data.user);
             } else {
                 setErrors(data);
@@ -55,7 +57,7 @@ const Register = () => {
            
             <div className='w-auto flex flex-col gap-3 justify-center items-center mt-24'>
                 <form 
-                    onSubmit={handleLogin}
+                    onSubmit={handleRegister}
                     className='flex flex-col justify-center items-center gap-5 border border-gray-400 rounded px-5 py-4 w-min bg-white dark:bg-gray-600 text-sm'>
                     <div className='flex justify-center items-center'>
                         <h1 className='font-poppins font-bold text-2xl'>TODO APP</h1>

@@ -16,7 +16,7 @@ const Sidebar = () => {
   }, [])
     return (
         <div className='w-56'>
-            <ul className="mt-16">
+            <ul className="pl-2 mt-16">
             {
               routes.map((route, i) => (
                 <li className="w-full relative px-6 py-3" key={i}>

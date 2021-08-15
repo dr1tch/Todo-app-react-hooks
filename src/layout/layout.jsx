@@ -1,15 +1,17 @@
-import React, { Suspense, useEffect } from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { Route, Redirect, useLocation, useHistory } from 'react-router-dom'
 import routes from '../routes';
 import * as ROUTES from '../constants/routes';
-import Spinner from '../components/utils/spinner';
 import Header from './header';
-import Container from './container';
 import Sidebar from './sidebar';
 
 const Layout = () => {
     const location = useLocation();
+    const history = useHistory()
     useEffect(() => {
+        if(!localStorage.getItem('token')){
+            history.push(ROUTES.LOGIN)
+        }
         console.log('layout', location.pathname)
         console.table(routes);
     }, [])
@@ -18,7 +20,7 @@ const Layout = () => {
         <Header />
         <div className="flex w-full">
             <Sidebar />
-            <main className="h-full overflow-y-auto">
+            <main className="h-full overflow-y-auto w-full">
                 <div className=" grid px-6 mx-6">
                 {/* <Suspense fallback={<Spinner />}> */}
                         {/* <AddService updated={updated}/> */}
