@@ -8,9 +8,19 @@ module.exports = {
             lg: "1024px",
             xl: "1280px",
         },
-        extend: {},
+        extend: {
+            colors: {
+                "gray-darkest": "#17181f",
+                "gray-dark": "#20212C",
+                "gray-default": "#18191A",
+                "gray-light": "#232626",
+            },
+        },
         fontFamily: {
+            roboto: "Roboto, sans-serif",
+            opensans: "Open Sans, sans-serif",
             poppins: "Poppins, sans-serif",
+            lato: "lato, sans-serif",
         },
     },
     variants: {
@@ -19,6 +29,7 @@ module.exports = {
         },
     },
     plugins: [
+        require("@tailwindcss/forms"),
         function({ addComponents }) {
             addComponents({
                 ".container": {

@@ -14,7 +14,7 @@ const AddTask = (props) => {
             console.log(data);
             if(data.success){
                 setTask('')
-                setTasks([...tasks, data.data]);
+                setTasks([data.data, ...tasks]);
                 setCount(count + 1);
             }
         });
@@ -30,7 +30,7 @@ const AddTask = (props) => {
             <div className='flex justify-start items-center space-x-3 gap-1 mt-6'>
                 <input 
                     aria-label='Enter your task'
-                    className='px-3 py-2 border border-gray-500 rounded text-sm w-72'
+                    className='px-3 py-2 border border-indigo-500 rounded text-sm w-72'
                     type="text" 
                     placeholder='New task...' 
                     onChange={({target}) => setTask(target.value)}

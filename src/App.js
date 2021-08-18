@@ -43,7 +43,7 @@ function App() {
       <tasksContext.Provider value={{ tasks, setTasks, count, setCount }}>
         <Router>
           <Switch>
-            <div className="App bg-gray-50 dark:bg-gray-800 h-screen">
+            <div className="App bg-white h-full">
                   <ProtectedRoute path={ROUTES.TASKS} user={user}>
                     <Route
                         path={ROUTES.TASKS}

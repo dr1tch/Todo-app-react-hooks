@@ -20,7 +20,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
            
             <motion.div
                 transition={{ duration: 4 }}
-             className={`${show} text-sm fixed top-0 left-0 right-0 bottom-0 min-h-full min-w-full bg-gray-800 bg-opacity-70 transition duration-500 ease-out`}>
+             className={`${show} text-sm fixed top-0 left-0 right-0 bottom-0 min-h-full inset-0 transition-opacity min-w-full bg-gray-800 bg-opacity-70 duration-500 ease-out`}>
                 <div
                  className='bg-white rounded-md w-72 max-w-auto h-auto center-item shadow-2xl px-4 py-3 flex flex-col gap-3 '>
                     { children }

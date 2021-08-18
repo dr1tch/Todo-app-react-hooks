@@ -1,0 +1,4 @@
+16/08/2021
+-----------------------
+- add the task to the server and attache it to the beginning of the tasks array.
+- create a custom hook (useAddTask) for add task functionality.

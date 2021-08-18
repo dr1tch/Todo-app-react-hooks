@@ -6,4 +6,4 @@ export const PROFILE = "/app/me/:username";
 export const EDIT_PROFILE = "/app/edit-profile";
 export const TASKS = "/app/";
 export const COMPLETED = "/app/completed";
-export const PENDING = "/app/pending";
+export const INCOMPLETED = "/app/incompleted";

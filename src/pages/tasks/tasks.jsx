@@ -1,10 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import AddTask from '../../components/addTask';
 import Modal from '../../components/modal';
+import Todo from '../../components/todo';
+
+import fetchAPI from '../../helpers/fetch';
+import tasksContext from "../../context/tasks";
 
 const Tasks = () => {
     const [ task, setTask ] = useState('')
     const [isOpen, setIsOpen] = useState(false);
+    const { tasks, setTasks, count, setCount } = useContext(tasksContext);
     const openModal = () => {
         setIsOpen(true);
     }
@@ -18,20 +23,16 @@ const Tasks = () => {
     }, [])
 
     return (
-        <>
+        <div className="w-full container mx-auto">
+        
             <AddTask />
+            <div className="w-full px-10 py-3">
+            {
+                tasks && tasks.map(task => <Todo key={task._id} task={task} />)
+            }
+            </div>
             
-            {/* <button 
-                className='bg-indigo-200 hover:bg-indigo-300 text-indigo-700 rounded px-3 py-2 text-sm w-24'
-                onClick={openModal}
-            >Add Task</button>
-            <Modal isOpen={isOpen} closeModal={closeModal}>
-                    <h1>Title</h1>
-                    <hr />
-                    <p>this is the body!</p>
-                    <hr />
-            </Modal> */}
-        </>
+        </div>
     )
 }
 

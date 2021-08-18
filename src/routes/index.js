@@ -23,20 +23,20 @@ const routes = [{
         // exact: true,
     },
     {
-        path: ROUTES.PENDING, // the url
+        path: ROUTES.INCOMPLETED, // the url
         component: Pending, // view rendered
         // exact: true,
     },
-    {
-        path: ROUTES.EDIT_PROFILE, // the url
-        component: EditProfile, // view rendered
-        // exact: true,
-    },
-    {
-        path: ROUTES.PROFILE, // the url
-        component: Profile, // view rendered
-        // exact: true,
-    },
+    // {
+    //     path: ROUTES.EDIT_PROFILE, // the url
+    //     component: EditProfile, // view rendered
+    //     // exact: true,
+    // },
+    // {
+    //     path: ROUTES.PROFILE, // the url
+    //     component: Profile, // view rendered
+    //     // exact: true,
+    // },
 ];
 
 export default routes;
